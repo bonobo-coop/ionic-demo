@@ -1,1 +1,1 @@
-var ionicApp = angular.module('todo', ['ionic']);
+angular.module('todo', ['ionic', 'app.controllers', 'app.models']);

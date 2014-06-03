@@ -1,5 +1,9 @@
-ionicApp.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
+angular.module('app.controllers', [])
 
+// Projects and tasks controller
+
+.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
+  
   // A utility function for creating a new project
   // with the given projectTitle
   var createProject = function(projectTitle) {
@@ -64,7 +68,7 @@ ionicApp.controller('TodoCtrl', function($scope, $timeout, $ionicModal, Projects
   $scope.toggleProjects = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
-
+  
 
   // Try to create the first project, make sure to defer
   // this by using $timeout so everything is initialized

@@ -1,9 +1,10 @@
+angular.module('app.models', [])
 /**
  * The Projects factory handles saving and loading projects
  * from local storage, and also lets us save and load the
  * last active project index.
  */
-ionicApp.factory('Projects', function() {
+.factory('Projects', function() {
   return {
     all: function() {
       var projectString = window.localStorage['projects'];
