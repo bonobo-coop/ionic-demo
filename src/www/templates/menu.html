@@ -1,0 +1,14 @@
+<ion-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">Projects</h1>
+    <button class="button button-icon ion-plus-round" ng-click="newProject('Project name:')">
+    </button>
+  </ion-header-bar>
+  <ion-content scroll="false">
+    <ion-list>
+      <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProjectId == $index}">
+        {{project.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

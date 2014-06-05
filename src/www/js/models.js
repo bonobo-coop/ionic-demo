@@ -13,6 +13,10 @@ angular.module('app.models', [])
       }
       return [];
     },
+    get: function(index) {
+      var projects = this.all();
+      return typeof projects[index] !== 'undefined' ? projects[index] : null;
+    },
     save: function(projects) {
       window.localStorage['projects'] = angular.toJson(projects);
     },
