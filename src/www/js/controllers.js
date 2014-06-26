@@ -93,4 +93,9 @@ angular.module('app.controllers', [])
       }
     }
   });
+})
+
+.controller('MapCtrl', function(MapService) {
+  // Map instance
+  MapService.build('map');
 });

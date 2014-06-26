@@ -1,4 +1,4 @@
-angular.module('todo', ['ionic', 'app.controllers', 'app.models'])
+angular.module('todo', ['ionic', 'app.controllers', 'app.models', 'app.services'])
 
 // Router
 
