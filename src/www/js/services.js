@@ -1,5 +1,20 @@
 angular.module('app.services', [])
 
+// Shared data from settings needed by different controllers
+
+.service('SettingsService', function() {
+  var _vars = {};
+  
+  return {
+    get: function(key) {
+      return (typeof _vars[key] !== 'undefined') ? _vars[key] : null;
+    },
+    set: function(key, value) {
+      _vars[key] = value;
+    }
+  };
+})
+
 // Build map instances and manage them (requires Leafletjs library)
 
 .service('MapService', function() {
