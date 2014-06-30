@@ -61,7 +61,8 @@ angular.module('app.controllers', [])
         return;
       }
       $scope.activeProject.tasks.push({
-        title: task.title
+        title: task.title,
+        address: task.address
       });
       Projects.save($scope.activeProject, function(){
         // Hide modal
@@ -73,6 +74,7 @@ angular.module('app.controllers', [])
         );
         // Reset model
         task.title = "";
+        task.address = "";
       });
     };
 
@@ -104,7 +106,29 @@ angular.module('app.controllers', [])
   });
 })
 
-.controller('MapCtrl', function(MapService) {
+.controller('MapCtrl', function(MapService, Projects) {
   // Map instance
   MapService.build('map');
+  // Get project tasks locations
+  Projects.get(Projects.getLastActiveIndex(), function(project) {
+    // Add listener
+    var markers = [];
+    var callback = function(marker){
+      // Store marker
+      markers.push(marker);
+      // Last one?
+      if (markers.length === project.tasks.length) {
+        // Add markers and center map
+        MapService.add(markers, true, 16);
+      }
+    };
+    // Add points
+    for (var i in project.tasks) {
+      MapService.geosearch(
+        project.tasks[i].address, 
+        project.tasks[i].title, 
+        callback
+      );
+    }
+  });
 });

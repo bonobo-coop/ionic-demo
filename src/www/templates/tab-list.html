@@ -2,7 +2,7 @@
   <ion-content has-header="true" scroll="false">
     <ion-list id="tasks-list">
       <ion-item ng-repeat="task in activeProject.tasks">
-        {{task.title}}
+        {{task.title}} - <small>{{task.address}}</small>
       </ion-item>
     </ion-list>
   </ion-content>
